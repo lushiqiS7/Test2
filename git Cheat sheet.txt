@@ -11,6 +11,7 @@ git init //initialize a new Git repository .git
 
 git status //check the status of the Git repository
 git rm/add helloworld.py //remove or add to staging area
+git add "lab3.pdf" //some file type need ""
 git commit -m "display text message" //to “commit” this file to the Git repository with a short text comment
 git diff //view the file differences
 
