@@ -1,0 +1,55 @@
+git config --global user.name "KweeTeck " //<your name>
+git config --global user.email tan_kwee_teck@ichat.sp.edu.sg //<your email>
+git config --list //check the profile info
+
+cd "C:\Local_Git_Repository" //<new folder’s path>
+
+mkdir lab1 //<name of new directory for new Git repository> 
+cd lab 1
+
+git init //initialize a new Git repository .git
+
+git status //check the status of the Git repository
+git rm/add helloworld.py //remove or add to staging area
+git commit -m "display text message" //to “commit” this file to the Git repository with a short text comment
+git diff //view the file differences
+
+git branch //To view all the branches created in the current Git repository
+git branch "bug-fix1" //specifying the name of the new branch: 
+git checkout "bug-fix1" //Checkout (switch) branches
+git merge "bug-fix1" //edit .py file in bug-fix1 then add,commit,checkout to master then merge 
+
+git remote add origin https://github.com/kweetecktanichat/Lab1.git //<GitHub repository URL from Step 5.5>
+git remote set-url origin https://github.com/lushiqiS7/Lab3.git// change URL
+git remote -v //check if the currently local Git repository has the remote repository server correctly configured
+git push --set-upstream origin master //setup the remote upstream branch (the ‘master’ branch in your GitHub repository) before the master branch with your local commit changes are pushed to GitHub. 
+
+git push -u origin //push the Local Git Repository to your remote GitHub repository
+
+git tag -a v1.0 -m "Initial release v1.0" //–a <tag> –m <comment>
+git push origin v1.0 //push –a <tag> to git hub
+
+git submodule add https://github.com/JohnProject.git //adding others file switch to deafult folder before adding
+
+git pull origin master //latest changes
+git push --force origin master // force push all the data
+
+git clone https://github.com/RatBaguette/Lab-1.git// do in new folder
+
+git log //to view and verify the commit history in your 
+classmate’s Github repository
+
+ls List / view contents in current directory
+pwd Print Working Directory
+sudo - “Super User DO” - Command to allow user to run
+commands that require elevated 
+supervisor rights
+- sudo shutdown now
+rmdir - Deletes and removes a directory
+rm - Deletes 1 or more files
+man - “Manual” command that displays the 
+manual on how to use any Linux 
+command
+- “man sudo” to view the 
+reference manual on the usage 
+of the “sudo” command
