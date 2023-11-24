@@ -1,18 +1,21 @@
+def get_user_input():
+    while True:
+        user_input = input("Enter a sequence of numbers separated by commas: ")
+        input_strings = user_input.split(',')
+        try:
+            input_floats = [float(value) for value in input_strings]
+            return input_floats
+        except ValueError:
+            print("Invalid input. Please enter numeric values separated by commas.")
+
+
 # Function to display the main menu
 def display_main_menu():
-    print("Enter some numbers separated by commas 5, 67, 32")
-
-
-# Function to get user input as a list of floats
-def get_user_input():
-    user_input = input("Enter a sequence of numbers separated by commas: ")
-    input_strings = user_input.split(',')
-    try:
-        input_floats = [float(value) for value in input_strings]
-        return input_floats
-    except ValueError:
-        print("Invalid input. Please enter numeric values separated by commas.")
-        return get_user_input()
+    print("1. Calculate Average")
+    print("2. Find Min and Max")
+    print("3. Sort Temperatures")
+    print("4. Calculate Median")
+    print("5. Exit")
 
 
 # Function to calculate the average of a list of floats
@@ -24,7 +27,7 @@ def calc_average(temperature_list):
         print(f"Average: {average:.2f}")
 
 
-# Function to find the minimum and maximum values in a list of floa
+# Function to find the minimum and maximum values in a list of floats
 def find_min_max(temperature_list):
     if not temperature_list:
         print("The list is empty. No minimum and maximum values to find.")
@@ -56,3 +59,32 @@ def calc_median_temperature(temperature_list):
         else:
             median = (sorted_temperatures[n // 2 - 1] + sorted_temperatures[n // 2]) / 2
         print(f"Median Temperature: {median}")
+
+
+# Main function
+def main():
+    while True:
+        display_main_menu()
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == '1':
+            temperature_list = get_user_input()
+            calc_average(temperature_list)
+        elif choice == '2':
+            temperature_list = get_user_input()
+            find_min_max(temperature_list)
+        elif choice == '3':
+            temperature_list = get_user_input()
+            sort_temperature(temperature_list)
+        elif choice == '4':
+            temperature_list = get_user_input()
+            calc_median_temperature(temperature_list)
+        elif choice == '5':
+            print("Exiting program. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5.")
+
+
+if __name__ == "__main__":
+    main()
