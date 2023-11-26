@@ -2,10 +2,14 @@ def get_user_input():
     while True:
         user_input = input("Enter a sequence of numbers separated by commas: ")
         input_strings = user_input.split(',')
-        try:
-            input_floats = [float(value) for value in input_strings]
-            return input_floats
-        except ValueError:
+
+        if all(val.strip().replace('.', '', 1).isdigit() for val in input_strings):
+            try:
+                input_floats = [float(value) for value in input_strings]
+                return input_floats
+            except ValueError:
+                print("Invalid input. Please enter numeric values separated by commas.")
+        else:
             print("Invalid input. Please enter numeric values separated by commas.")
 
 
@@ -22,9 +26,11 @@ def display_main_menu():
 def calc_average(temperature_list):
     if not temperature_list:
         print("The list is empty. Cannot calculate the average.")
+        return None
     else:
         average = sum(temperature_list) / len(temperature_list)
         print(f"Average: {average:.2f}")
+        return average
 
 
 # Function to find the minimum and maximum values in a list of floats
@@ -34,8 +40,7 @@ def find_min_max(temperature_list):
     else:
         min_temp = min(temperature_list)
         max_temp = max(temperature_list)
-        print(f"Minimum Temperature: {min_temp}")
-        print(f"Maximum Temperature: {max_temp}")
+        return min_temp, max_temp
 
 
 # Function to sort a list of floats in ascending order
@@ -59,6 +64,7 @@ def calc_median_temperature(temperature_list):
         else:
             median = (sorted_temperatures[n // 2 - 1] + sorted_temperatures[n // 2]) / 2
         print(f"Median Temperature: {median}")
+        return median
 
 
 # Main function
